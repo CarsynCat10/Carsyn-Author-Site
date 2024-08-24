@@ -44,7 +44,7 @@ header {
 
 .logosplash {
   opacity: 1;
-  position: absolute;
+  position: fixed;
   top: 0%;
   left: 0%;
   width: 100%;
@@ -73,10 +73,10 @@ header {
   transform-origin: center;
   font-size: 10em;
   color: var(--color-dark-green);
-  transition: all 0.2s;
   animation: fadeinandgrow 3s forwards, moveLogo 1s forwards 3s;
   z-index: 1001;
   margin-top: 0;
+  transition: all 0.2s;
 }
 
 .scrolled {
@@ -98,7 +98,7 @@ header {
   transition: all 0.2s;
 }
 
-.scrolled #logo:before {
+.scrolled .header-content .logo:before {
   color: white;
   font-size: 0.8em;
   transition: all 0.2s;
@@ -195,9 +195,10 @@ header.scrolled .logo {
   justify-content: center;
   align-items: center;
   background-image: url(.//assets/images/banners/splash.png);
+  background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
   border-bottom: 10px solid;
   border-image: linear-gradient(
       to right,
@@ -210,11 +211,117 @@ header.scrolled .logo {
     1;
 }
 
+.splashbgimg {
+  position: absolute;
+  opacity: 0.5;
+  max-height: 80%;
+  max-width: 80%;
+  z-index: 1;
+}
+
 .splash-content {
-  background-image: url(./assets/images/splashback.png);
-  background-repeat: no-repeat;
-  background-size: 60%;
-  background-position: center;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  max-width: 75%;
+}
+
+.splash-content-left img {
+  position: relative;
+  z-index: 2;
+  height: 700px;
+}
+
+.splash-content-left {
+  width: 40%;
+}
+
+.splash-content-right {
+  width: 50%;
+}
+
+.splash-content-right h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+.splash-content-right p {
+  font-size: 1.3em;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--color-cream);
+}
+
+.splash-content-right-buttons {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.2s;
+}
+
+.splash-content-right-buttons p {
+  font-size: 1.3em;
+  color: var(--color-cream);
+}
+
+.splash-content-right-buttons a {
+  color: var(--color-cream);
+  font-size: 1em;
+  padding: 10px 20px;
+  border: 2px solid var(--color-cream);
+  border-radius: 5px;
+  color: var(--color-cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.splash-content-right-buttons a:hover {
+  background-color: var(--color-cream);
+  color: var(--color-dark-green);
+}
+
+#amazon {
+  border: none;
+  color: gray;
+  font-size: 0.8em;
+}
+
+.embellishment {
+  opacity: 0;
+  top: 96vh;
+  left: 30%;
+  z-index: 10;
+  scale: 1;
+  width: 40%;
+  color: #ffe789;
+}
+
+/* change scrollbar color and style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-mid-green);
+  border-radius: 10px;
+  margin: 2px;
+  animation: changeColor 0.4s 1s forwards; /* Reduced delay for testing */
+  transition: all 0.2s;
 }
